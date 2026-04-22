@@ -1,6 +1,6 @@
 # Lab 08 — Alinhamento Humano com DPO
 
-[![CI](https://github.com/lcsp14/lab08-dpo/actions/workflows/ci.yml/badge.svg)](https://github.com/lcsp14/lab08-dpo/actions/workflows/ci.yml)
+[![CI](https://github.com/lcsp14/lab08-dpo-alignment/actions/workflows/ci.yml/badge.svg)](https://github.com/lcsp14/lab08-dpo/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue?logo=python)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Release](https://img.shields.io/badge/release-v1.0-orange)
