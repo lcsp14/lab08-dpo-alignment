@@ -1,0 +1,50 @@
+# ── Ambiente Python ───────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# ── Variáveis de ambiente (NUNCA versionar) ───────────────────────────────────
+.env
+*.env
+
+# ── Pesos e checkpoints do modelo (arquivos muito grandes) ────────────────────
+outputs/
+*.bin
+*.safetensors
+*.pt
+*.pth
+
+# ── Checkpoints de treinamento intermediários ─────────────────────────────────
+checkpoint-*/
+
+# ── Cache do Hugging Face ─────────────────────────────────────────────────────
+.cache/
+~/.cache/huggingface/
+
+# ── TensorBoard logs ──────────────────────────────────────────────────────────
+runs/
+logs/
+
+# ── Jupyter Notebook checkpoints ─────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ── IDEs ──────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# ── Cobertura de testes ───────────────────────────────────────────────────────
+.coverage
+htmlcov/
