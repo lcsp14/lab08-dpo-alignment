@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Validar sintaxe do train_dpo.py
+        run: python -m py_compile train_dpo.py && echo "Sintaxe OK"
+
+      - name: Validar dataset HHH
+        run: |
+          python - << 'EOF'
+          import json
+
+          path = "data/hhh_preferences.jsonl"
+          required = {"prompt", "chosen", "rejected"}
+          errors = []
+
+          with open(path, encoding="utf-8") as f:
+              for i, line in enumerate(f, 1):
+                  line = line.strip()
+                  if not line:
+                      continue
+                  try:
+                      obj = json.loads(line)
+                  except json.JSONDecodeError as e:
+                      errors.append(f"Linha {i}: JSON inválido — {e}")
+                      continue
+                  missing = required - set(obj.keys())
+                  if missing:
+                      errors.append(f"Linha {i}: colunas ausentes — {missing}")
+
+          if errors:
+              for e in errors:
+                  print(f"ERRO: {e}")
+              raise SystemExit(1)
+
+          print(f"Dataset OK — {i} pares validados com colunas {sorted(required)}")
+          EOF
