@@ -127,7 +127,7 @@ dpo_config = DPOConfig(
     warmup_steps=10,
 
     # ── Precisão mista ────────────────────────────────────────────────────
-    fp16=True,
+    fp16=False,
     bf16=False,
 
     # ── Regularização ─────────────────────────────────────────────────────
@@ -327,8 +327,6 @@ def main() -> None:
         train_dataset=dataset_train,
         eval_dataset=dataset_eval,
         processing_class=tokenizer,
-        max_length=512,
-        max_prompt_length=256,
     )
 
     # ── [5/6] Treinamento ─────────────────────────────────────────────────
